@@ -261,7 +261,7 @@ const productOverview = [
   },
 ];
 
-const Dashboard = () => {
+const Report = () => {
   return (
     <div className="w-full px-6 pt-6 bg-transparent text-foreground">
       {/* Stats with Graphs */}
@@ -558,4 +558,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Report;

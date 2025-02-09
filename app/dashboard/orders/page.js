@@ -2,9 +2,7 @@
 
 import * as React from "react";
 import {
-  ColumnDef,
-  SortingState,
-  VisibilityState,
+ 
   flexRender,
   getCoreRowModel,
   getPaginationRowModel,
@@ -21,40 +19,73 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Eye, Edit, Trash2 } from "lucide-react";
+import { Eye, Edit, Trash2, Package } from "lucide-react";
+import Image from "next/image";
 
-const initialUsers = [
+const initialOrders = [
   {
-    name: "John Doe",
-    email: "john.doe@example.com",
-    role: "Admin",
+    product: "Dog Food, Chicken & Chicken Liver Recipe",
+    image: "",
+    orderId: "#ORD12345",
+    price: 1452.5,
+    quantity: 2,
+    payment: "Paid",
+    status: "Shipped",
+    tracking: "#TRK56789",
   },
   {
-    name: "Jane Smith",
-    email: "jane.smith@example.com",
-    role: "Editor",
+    product: "Organic Cat Food, Salmon & Tuna",
+    image: "",
+    orderId: "#ORD12346",
+    price: 1250.0,
+    quantity: 1,
+    payment: "Pending",
+    status: "Processing",
+    tracking: "#TRK56790",
   },
   {
-    name: "Michael Johnson",
-    email: "michael.johnson@example.com",
-    role: "Viewer",
-  },
-  {
-    name: "Emily Davis",
-    email: "emily.davis@example.com",
-    role: "Editor",
-  },
-  {
-    name: "David Brown",
-    email: "david.brown@example.com",
-    role: "Admin",
+    product: "Large Breed Dog Food, Beef & Rice",
+    image: "",
+    orderId: "#ORD12347",
+    price: 1650.0,
+    quantity: 3,
+    payment: "Paid",
+    status: "Delivered",
+    tracking: "#TRK56791",
   },
 ];
 
 export const columns = [
-  { accessorKey: "name", header: "Name" },
-  { accessorKey: "email", header: "Email" },
-  { accessorKey: "role", header: "Role" },
+  {
+    accessorKey: "product",
+    header: "Product",
+    cell: ({ row }) => (
+      <div className="flex items-center gap-2">
+        {row.original.image ? (
+          <Image
+            src={row.original.image}
+            alt={row.original.product}
+            width={40}
+            height={40}
+            className="rounded-md"
+          />
+        ) : (
+          <Package className="w-10 h-10 text-gray-400" />
+        )}
+        <span>{row.original.product}</span>
+      </div>
+    ),
+  },
+  { accessorKey: "orderId", header: "Order ID" },
+  {
+    accessorKey: "price",
+    header: "Price",
+    cell: ({ row }) => `$${row.getValue("price").toFixed(2)}`,
+  },
+  { accessorKey: "quantity", header: "Quantity" },
+  { accessorKey: "payment", header: "Payment" },
+  { accessorKey: "status", header: "Status" },
+  { accessorKey: "tracking", header: "Tracking" },
   {
     header: "Actions",
     cell: ({ row }) => (
@@ -73,37 +104,31 @@ export const columns = [
   },
 ];
 
-export default function UserTable() {
-  const [sorting, setSorting] = React.useState([]);
-  const [columnVisibility, setColumnVisibility] = React.useState({});
+export default function OrderTable() {
   const [search, setSearch] = React.useState("");
-
-  const filteredUsers = React.useMemo(() => {
-    return initialUsers.filter(
-      (user) =>
-        user.name.toLowerCase().includes(search.toLowerCase()) ||
-        user.email.toLowerCase().includes(search.toLowerCase())
+  const filteredOrders = React.useMemo(() => {
+    return initialOrders.filter(
+      (order) =>
+        order.product.toLowerCase().includes(search.toLowerCase()) ||
+        order.orderId.toLowerCase().includes(search.toLowerCase())
     );
   }, [search]);
 
   const table = useReactTable({
-    data: filteredUsers,
+    data: filteredOrders,
     columns,
-    onSortingChange: setSorting,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
-    onColumnVisibilityChange: setColumnVisibility,
-    state: { sorting, columnVisibility },
   });
 
   return (
     <div className="flex flex-col gap-6 p-3 mb-32">
-      <div className="text-2xl text-foreground font-semibold">Users</div>
+      <div className="text-2xl text-foreground font-semibold">Orders</div>
       <div className="w-full p-6 bg-background rounded-lg shadow-md">
         <div className="flex items-center justify-between mb-4">
           <Input
-            placeholder="Search by name or email..."
+            placeholder="Search by product name or Order ID..."
             className="w-1/3"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -111,16 +136,13 @@ export default function UserTable() {
         </div>
 
         <div className="w-full overflow-x-auto">
-          <div className="min-w-[600px]">
+          <div className="min-w-[900px]">
             <Table className="w-full">
               <TableHeader>
                 {table.getHeaderGroups().map((headerGroup) => (
                   <TableRow key={headerGroup.id} className="bg-background/10">
                     {headerGroup.headers.map((header) => (
-                      <TableHead
-                        key={header.id}
-                        className="px-4 py-2 text-left"
-                      >
+                      <TableHead key={header.id} className="px-4 py-2">
                         {flexRender(
                           header.column.columnDef.header,
                           header.getContext()
@@ -133,7 +155,7 @@ export default function UserTable() {
               <TableBody>
                 {table.getRowModel().rows.length ? (
                   table.getRowModel().rows.map((row) => (
-                    <TableRow key={row.id} className="border-b">
+                    <TableRow key={row.id}>
                       {row.getVisibleCells().map((cell) => (
                         <TableCell key={cell.id} className="px-4 py-2">
                           {flexRender(
@@ -150,33 +172,12 @@ export default function UserTable() {
                       colSpan={columns.length}
                       className="text-center py-4"
                     >
-                      No users found.
+                      No orders found.
                     </TableCell>
                   </TableRow>
                 )}
               </TableBody>
             </Table>
-          </div>
-        </div>
-
-        <div className="flex justify-between items-center mt-4">
-          <span className="text-foreground/10">
-            Page {table.getState().pagination.pageIndex + 1} of{" "}
-            {table.getPageCount()}
-          </span>
-          <div className="flex space-x-2">
-            <Button
-              onClick={() => table.previousPage()}
-              disabled={!table.getCanPreviousPage()}
-            >
-              Previous
-            </Button>
-            <Button
-              onClick={() => table.nextPage()}
-              disabled={!table.getCanNextPage()}
-            >
-              Next
-            </Button>
           </div>
         </div>
       </div>

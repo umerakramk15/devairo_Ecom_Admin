@@ -22,13 +22,13 @@ const Header = ({ isOpen, toggleSidebar }) => {
   if (!hydrated) return <div className="h-16 bg-gray-900"></div>; // Prevent flickering
 
   return (
-    <header className="fixed top-0 left-0 w-full max-w-screen bg-background text-foreground flex items-center justify-between px-4 md:px-6 py-4 border-b shadow-md z-50 ">
+    <header className="fixed top-0 left-0 w-full max-w-screen bg-background text-foreground flex items-center justify-between px-4 md:px-6 py-4 border-b shadow-md z-[100] ">
       {/* Left Section */}
       <div className="flex items-center gap-4">
-        <button onClick={toggleSidebar} className="p-2 rounded-md">
+        <button onClick={toggleSidebar} className="p-2 rounded-md hover:rotate-12 transition-all">
           <PanelsTopLeft size={24} />
         </button>
-        <h1 className="text-xl font-bold hidden md:block">Admin Panel</h1>
+        <h1 className="text-xl font-bold hidden md:block">De<span className="text-accent">vairo</span></h1>
       </div>
 
       {/* Right Section */}
