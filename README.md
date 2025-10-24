@@ -1,4 +1,4 @@
-# 🧠 Ecom Agentic AI Admin Panel
+# 🧠 Ecomerce Agentic AI Admin Panel
 
 ### An AI-Powered Multi-Brand eCommerce Management System
 
