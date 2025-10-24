@@ -52,6 +52,38 @@
 
 ---
 
+---
+
+## 🎬 Project Demo & Visuals
+
+### 🖥️ Dashboard Preview
+<p align="center">
+  <img src="./public/Dashboard.jpeg" width="850" alt="Ecom Admin Dashboard Preview" />
+</p>
+
+### 📊 Analytics Overview
+<p align="center">
+  <img src="./assets/analytics.png" width="850" alt="AI Analytics Page" />
+</p>
+
+### 🤖 AI Chat Assistant
+<p align="center">
+  <img src="./assets/ai_chat.png" width="850" alt="AI Chat Assistant Demo" />
+</p>
+
+---
+
+### 🎥 Watch the Demo Video
+<p align="center">
+  <a href="https://youtu.be/YOUR_VIDEO_ID" target="_blank">
+    <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg" width="850" alt="Watch Demo Video" />
+  </a>
+</p>
+
+> 📹 Click the image above to watch the full video demonstration on YouTube.
+
+
+
 ## 🛠️ Installation & Setup
 
 Clone the repository:
