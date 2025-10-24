@@ -58,17 +58,17 @@
 
 ### 🖥️ Dashboard Preview
 <p align="center">
-  <img src="./public/Dashboard.jpeg" width="850" alt="Ecom Admin Dashboard Preview" />
+  <img src="./public/Dashboard.jpeg" width="350" alt="Ecom Admin Dashboard Preview" />
 </p>
 
-### 📊 Analytics Overview
+### 📊 Products Insights
 <p align="center">
-  <img src="./assets/analytics.png" width="850" alt="AI Analytics Page" />
+  <img src="./public/Products.jpeg" width="350" alt="AI Analytics Page" />
 </p>
 
-### 🤖 AI Chat Assistant
+### Product
 <p align="center">
-  <img src="./assets/ai_chat.png" width="850" alt="AI Chat Assistant Demo" />
+  <img src="./public/Product.jpeg" width="350" alt="AI Chat Assistant Demo" />
 </p>
 
 ---
