@@ -73,12 +73,17 @@
 
 ---
 
-### 🎥 Watch the Demo Video
-<video width="850" controls>
-  <source src="./public/Video (2).mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-> 📹 Click the image above to watch the full video demonstration on YouTube.
+
+## 🎥 Project Demo
+
+<p align="center">
+  <a href="./public/Video (2).mp4" target="_blank">
+    <img src="./publiv/Dashboard.jpeg" width="850" alt="Ecom Agentic Admin Demo" />
+  </a>
+</p>
+
+> 🎬 Click the image above to watch the demo video.
+
 
 
 
