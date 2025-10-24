@@ -75,9 +75,7 @@
 
 ### 🎥 Watch the Demo Video
 <p align="center">
-  <a href="https://youtu.be/YOUR_VIDEO_ID" target="_blank">
-    <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg" width="850" alt="Watch Demo Video" />
-  </a>
+    <img src="./public/Video (2).mp4" width="850" alt="Watch Demo Video" />
 </p>
 
 > 📹 Click the image above to watch the full video demonstration on YouTube.
