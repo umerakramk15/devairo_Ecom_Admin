@@ -74,10 +74,10 @@
 ---
 
 ### 🎥 Watch the Demo Video
-<p align="center">
-    <img src="./public/Video (2).mp4" width="850" alt="Watch Demo Video" />
-</p>
-
+<video width="850" controls>
+  <source src="./public/Video (2).mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 > 📹 Click the image above to watch the full video demonstration on YouTube.
 
 
